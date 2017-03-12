@@ -1,0 +1,23 @@
+/Users/thomashayden/gitrepos/Maze/Maze.cpp:15:31: error: a space is required between consecutive right angle brackets (use '> >')
+  std::vector<std::vector<Cell>> tmp(width, std::vector<Cell>(height));
+                              ^~
+                              > >
+/Users/thomashayden/gitrepos/Maze/Maze.cpp:31:8: warning: 'auto' type specifier is a C++11 extension [-Wc++11-extensions]
+  for (auto i : UnvisitedRooms)
+       ^
+/Users/thomashayden/gitrepos/Maze/Maze.cpp:31:15: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+  for (auto i : UnvisitedRooms)
+              ^
+/Users/thomashayden/gitrepos/Maze/Maze.cpp:38:10: warning: 'auto' type specifier is a C++11 extension [-Wc++11-extensions]
+    for (auto i : UnvisitedRooms)
+         ^
+/Users/thomashayden/gitrepos/Maze/Maze.cpp:38:17: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+    for (auto i : UnvisitedRooms)
+                ^
+/Users/thomashayden/gitrepos/Maze/Maze.cpp:61:8: warning: 'auto' type specifier is a C++11 extension [-Wc++11-extensions]
+  for (auto i : UnvisitedRooms)
+       ^
+/Users/thomashayden/gitrepos/Maze/Maze.cpp:61:15: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+  for (auto i : UnvisitedRooms)
+              ^
+6 warnings and 1 error generated.

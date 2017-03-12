@@ -9,7 +9,7 @@ class Maze {
 
     void Compute(int x, int y);
 
-    //void Print();
+    void Print();
 
   private:
 

@@ -4,10 +4,11 @@
 
 int main()
 {
+  srand(time(NULL));
   std::cout<< "Initializing"<<std::endl;
-  Maze a(1,1);
-  std::cout<< "Created instance of Maze"<<std::endl;
+  Maze a(3,3);
   a.Compute(0,0);
+  a.Print();
 
   return 0;
 }
