@@ -8,7 +8,7 @@ class Maze {
     Maze(int width, int height);
 
     void Compute(int x, int y);
-
+    void debug_print();
     void Print();
 
   private:

@@ -18,7 +18,6 @@ Maze::Maze(const int width, const int height){
 }
 
 void Maze::Compute (int x, int y){
-  std::cout<<x<<" "<<y<<std::endl;
   (cells[x][y]).MarkVisited();
   std::vector<int> UnvisitedRooms(4,1);
   if (x == 0 || cells[x-1][y].Visited() == 1) UnvisitedRooms[0] = 0;
@@ -40,10 +39,10 @@ void Maze::Compute (int x, int y){
         ++count;
       }
   switch(count) {
-    case 0: cells[x-1][y].BreakRight();std::cout<<"BreakLeft"<<std::endl; Compute(x-1,y); break;
-    case 1: cells[x][y].BreakRight();std::cout<<"Breakright"<<std::endl; Compute(x+1,y); break;
-    case 2: cells[x][y].BreakBottom();std::cout<<"BreakBottom"<<std::endl; Compute(x,y-1); break;
-    case 3: cells[x][y+1].BreakBottom();std::cout<<"BreakTop"<<std::endl; Compute(x,y+1); break;
+    case 0: cells[x-1][y].BreakRight(); Compute(x-1,y); break;
+    case 1: cells[x][y].BreakRight(); Compute(x+1,y); break;
+    case 2: cells[x][y].BreakBottom(); Compute(x,y-1); break;
+    case 3: cells[x][y+1].BreakBottom(); Compute(x,y+1); break;
   }
 
   if (x == 0 || cells[x-1][y].Visited() == 1) UnvisitedRooms[0] = 0;
@@ -64,52 +63,45 @@ int Maze::Rand(int n){
   return 1+rand()%n;
 }
 
+void Maze::debug_print(){
+  for (int i = 0; i < W; ++i){
+    for (int j = 0; j < H; ++j ){
+
+      std::cout<< "rightwall is "<< cells[i][j].RightWall()<<" and bottom wall is " <<cells[i][j].BottomWall() <<std::endl;
+    }
+  }
+}
+
 void Maze::Print(){
 
-  int cellHeight = 1;
+  int cellHeight = 2;
 
-  std::cout<< " ";
+  std::cout<< "-";
   for (int p =0; p < W; ++p)
     std::cout<<"---";
 
   std::cout<<std::endl;
 
-  for (int i = 0; i < H-1; ++i){
-    for (int j = 0; j<cellHeight; ++j){
+  for (int j = H-1; j >= 0; --j){            //rows
+    for (int cHeight = 0; cHeight<cellHeight; ++cHeight){      //for cell height
       std::cout<< "|";
-      for (int k =0; k< W-1; ++k){
+      for (int i =0; i < W; ++i){           //for columns
         std::cout<< "  ";
-        if (cells[i][k].RightWall() == 0)
+        if (cells[i][j].RightWall() == 0)
           std::cout<<" ";
         else
           std::cout<<"|";
       }
 
-      std::cout<<"  |"<<std::endl;
+      std::cout<<std::endl;
     }
-    for (int k = 0; k < W; ++k){
-      if (cells[i][k].BottomWall() == 0)
+    for (int i = 0; i < W; ++i){
+      if (cells[i][j].BottomWall() == 0)
         std::cout<<"   ";
       else
-        std::cout<<"---";
+        std::cout<<"___";
     }
     std::cout<<std::endl;
   }
-
- int i = H-1;
-  for (int j = 0; j<cellHeight; ++j){
-    std::cout<< "|";
-    for (int k =0; k< W-1; ++k){
-      std::cout<< "  ";
-      if (cells[i][k].RightWall() == 0)
-        std::cout<<" ";
-      else
-        std::cout<<"|";
-    }
-  std::cout<<"  |"<<std::endl;
-  }
-for (int k = 0; k < W; ++k)
-  std::cout<<"---";
-std::cout<<std::endl;
 
 }

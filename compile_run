@@ -1,4 +1,4 @@
 g++ -std=c++11 -c Cell.cpp
 g++ -std=c++11 -c Maze.cpp
 g++ -std=c++11 -c main.cpp
-g++ -std=c++11 -o Test Maze.o main.o Cell.o
+g++ -std=c++11 -o Maze Maze.o main.o Cell.o
