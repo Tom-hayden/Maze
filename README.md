@@ -1,6 +1,6 @@
 # Maze
 
-Creates a maze with a given width and height.
+Creates a maze with a given width and height. Note that markdown collapses whitespace so the output from the program is not best represented on the GitHub website.
 ----------------------------------------------------------------------------
 |        |                                   |                             |
 |        |                                   |                             |
