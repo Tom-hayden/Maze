@@ -1,19 +1,18 @@
-#include "Cell.h"
 #include <iostream>
-#include "Maze.h"
 #include <sstream>
 
+#include "Maze.h"
 
 int main()
 {
   srand(time(NULL));
   std::string sinput;
 
+  //default values for initialisation
   int width = -1;
   int height = -1;
 
   std::cout<< "Welcome to the Maze Creator"<<std::endl;
-
 
   std::cout << "Please enter the width of the maze."<<std::endl;
   while (width < 1){
@@ -40,9 +39,9 @@ int main()
 
   }
 
-  Maze a(width,height);
-  a.Compute(0,0);         //The starting point of the maze.
-  a.Print();
+  Maze m(width,height);
+  m.Compute(0,0);         //The starting point of the maze.
+  m.Print();
 
   return 0;
 }

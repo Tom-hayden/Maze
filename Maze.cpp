@@ -1,8 +1,9 @@
-#include "Maze.h"
 #include <iostream>
+#include <stdlib.h>
 #include <vector>
-#include "stdlib.h"
+
 #include "Cell.h"
+#include "Maze.h"
 
 Maze::Maze(const int width, const int height){
   if ( width <= 0 || height <= 0)
@@ -17,8 +18,10 @@ Maze::Maze(const int width, const int height){
   cells = tmp;
 }
 
+//Compute 'creates' the maze by calling
 void Maze::Compute (int x, int y){
-  (cells[x][y]).MarkVisited();
+  (cells[x][y]).MarkVisited();   //starting room
+  
   std::vector<int> UnvisitedRooms(4,1);
   if (x == 0 || cells[x-1][y].Visited() == 1) UnvisitedRooms[0] = 0;
   if (x == W-1 || cells[x+1][y].Visited() == 1) UnvisitedRooms[1] = 0;
